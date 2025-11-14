@@ -56,6 +56,7 @@ class TailwindMergeServiceProvider extends PackageServiceProvider
     {
         if (class_exists(AliasLoader::class)) {
             AliasLoader::getInstance()->alias('TailwindMerge', TailwindMergeFacade::class);
+
             return;
         }
 
