@@ -207,24 +207,24 @@ final class TailwindMerge
     private array $conflictingGroups = [
         // margin shorthands
         'margin-all' => ['margin-x', 'margin-y', 'margin-t', 'margin-r', 'margin-b', 'margin-l'],
-        'margin-x'   => ['margin-all', 'margin-r', 'margin-l'],
-        'margin-y'   => ['margin-all', 'margin-t', 'margin-b'],
-        'margin-t'   => ['margin-all', 'margin-y'],
-        'margin-r'   => ['margin-all', 'margin-x'],
-        'margin-b'   => ['margin-all', 'margin-y'],
-        'margin-l'   => ['margin-all', 'margin-x'],
+        'margin-x' => ['margin-all', 'margin-r', 'margin-l'],
+        'margin-y' => ['margin-all', 'margin-t', 'margin-b'],
+        'margin-t' => ['margin-all', 'margin-y'],
+        'margin-r' => ['margin-all', 'margin-x'],
+        'margin-b' => ['margin-all', 'margin-y'],
+        'margin-l' => ['margin-all', 'margin-x'],
 
         // padding shorthands
         'padding-all' => ['padding-x', 'padding-y', 'padding-t', 'padding-r', 'padding-b', 'padding-l'],
-        'padding-x'   => ['padding-all', 'padding-r', 'padding-l'],
-        'padding-y'   => ['padding-all', 'padding-t', 'padding-b'],
-        'padding-t'   => ['padding-all', 'padding-y'],
-        'padding-r'   => ['padding-all', 'padding-x'],
-        'padding-b'   => ['padding-all', 'padding-y'],
-        'padding-l'   => ['padding-all', 'padding-x'],
+        'padding-x' => ['padding-all', 'padding-r', 'padding-l'],
+        'padding-y' => ['padding-all', 'padding-t', 'padding-b'],
+        'padding-t' => ['padding-all', 'padding-y'],
+        'padding-r' => ['padding-all', 'padding-x'],
+        'padding-b' => ['padding-all', 'padding-y'],
+        'padding-l' => ['padding-all', 'padding-x'],
 
         // gap shorthands
-        'gap'   => ['gap-x', 'gap-y'],
+        'gap' => ['gap-x', 'gap-y'],
         'gap-x' => ['gap'],
         'gap-y' => ['gap'],
     ];

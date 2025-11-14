@@ -18,7 +18,7 @@ class TailwindMergeServiceProvider extends PackageServiceProvider
 
     public function packageRegistered(): void
     {
-        $this->app->singleton(TailwindMerge::class, fn () => new TailwindMerge());
+        $this->app->singleton(TailwindMerge::class, fn () => new TailwindMerge);
 
         $this->app->alias(TailwindMerge::class, 'tailwind-merge');
     }
@@ -50,7 +50,6 @@ class TailwindMergeServiceProvider extends PackageServiceProvider
 
         ComponentAttributeBag::macro('twMergeFor', function (string $for, ...$args): ComponentAttributeBag {
             /** @var ComponentAttributeBag $this */
-
             $attribute = 'class'.($for !== '' ? ':'.$for : '');
 
             /** @var string $existing */
