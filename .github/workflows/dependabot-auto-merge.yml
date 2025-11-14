@@ -1,5 +1,10 @@
 name: dependabot-auto-merge
-on: pull_request_target
+on:
+  pull_request_target:
+    paths:
+      - 'composer.json'
+      - 'composer.lock'
+      - '.github/workflows/**'
 
 permissions:
   pull-requests: write

@@ -3,7 +3,11 @@ name: Fix PHP code style issues
 on:
   push:
     paths:
-      - '**.php'
+      - '**/*.php'
+    paths-ignore:
+      - '*.md'
+      - '**/*.md'
+      - 'docs/**'
 
 permissions:
   contents: write
