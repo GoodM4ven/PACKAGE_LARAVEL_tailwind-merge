@@ -7,7 +7,7 @@ namespace TailwindMerge\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static string merge(...$args)
+ * @method static string classes(...$args)
  */
 class TailwindMerge extends Facade
 {

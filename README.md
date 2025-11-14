@@ -10,17 +10,47 @@ Dealing with TailwindCSS classes overriding can either be done with fighting imp
 
 ## Installation
 
-You can install the package via composer:
+You can install the package via [composer](https://getcomposer.org/):
 
 ```bash
 composer require goodm4ven/tailwind-merge
 ```
 
+
 ## Usage
 
+**It's all about the last-wins approach for consistency. Single string or multiple ones are around as arguments. You may also add them as an associative array to conditions!**
+
+- Global helper function for PHP anywhere
 ```php
-// TODO
+twMerge('text-lg text-sm'); // results in "text-sm"
+twMerge('sm:text-lg', 'sm:text-3xl'); // results in "sm:text-3xl"
+twMerge([
+    'sm:text-lg py-10 px-5' => true,
+    'sm:text-xl' => false,
+    'sm:text-3xl py-5',
+    'sm:text-sm' => true,
+]); // results in "sm:text-sm px-5 py-5"
 ```
+
+- Resolve the merger directly (container or facade)
+```php
+// Either
+app('tailwind-merge')->classes('last conflicting classes win');
+// Or
+TailwindMerge::classes('last conflicting classes win');
+```
+
+- Attribute bag macro inside Laravel Blade components
+```php
+$attributes->twMerge('last conflicting classes win', 'then last conflicting classes win');
+```
+
+- Blade directive for Blade views in general
+```php
+@twMerge('last conflicting classes win')
+```
+
 
 ## Testing
 
@@ -28,23 +58,27 @@ composer require goodm4ven/tailwind-merge
 composer test
 ```
 
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+
 
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
+
 ## Security Vulnerabilities
 
 Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
 
+
 ## Credits
-inspired by
-copy all chat to codex + test
+- Inspired by the [original package](https://github.com/gehrisandro/tailwind-merge-laravel)
 - [GoodM4ven](https://github.com/GoodM4ven)
 - [All Contributors](../../contributors)
+
 
 ## License
 

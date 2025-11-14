@@ -13,6 +13,6 @@ if (! function_exists('twMerge')) {
         /** @var TailwindMerge $merger */
         $merger = app('tailwind-merge');
 
-        return $merger->merge(...$args);
+        return $merger->classes(...$args);
     }
 }

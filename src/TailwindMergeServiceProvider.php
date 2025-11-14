@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace TailwindMerge;
 
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\ComponentAttributeBag;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use TailwindMerge\Facades\TailwindMerge as TailwindMergeFacade;
 
 class TailwindMergeServiceProvider extends PackageServiceProvider
 {
@@ -27,6 +29,7 @@ class TailwindMergeServiceProvider extends PackageServiceProvider
     {
         $this->registerBladeDirective();
         $this->registerAttributeBagMacros();
+        $this->registerFacadeAlias();
     }
 
     protected function registerBladeDirective(): void
@@ -47,17 +50,17 @@ class TailwindMergeServiceProvider extends PackageServiceProvider
 
             return $this->except('class')->merge(['class' => $merged]);
         });
+    }
 
-        ComponentAttributeBag::macro('twMergeFor', function (string $for, ...$args): ComponentAttributeBag {
-            /** @var ComponentAttributeBag $this */
-            $attribute = 'class'.($for !== '' ? ':'.$for : '');
+    protected function registerFacadeAlias(): void
+    {
+        if (class_exists(AliasLoader::class)) {
+            AliasLoader::getInstance()->alias('TailwindMerge', TailwindMergeFacade::class);
+            return;
+        }
 
-            /** @var string $existing */
-            $existing = $this->get($attribute, '');
-
-            $merged = twMerge($existing, $args);
-
-            return $this->except($attribute)->merge([$attribute => $merged]);
-        });
+        if (! class_exists('TailwindMerge')) {
+            class_alias(TailwindMergeFacade::class, 'TailwindMerge');
+        }
     }
 }

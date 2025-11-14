@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace TailwindMerge;
 
+use Illuminate\Support\Arr;
+
 /**
  * Minimal Tailwind class merger, compatible with Tailwind v4 semantics.
  *
@@ -241,7 +243,7 @@ final class TailwindMerge
      *
      * @param  string|array<int, string|array<int, string>>  ...$args
      */
-    public function merge(...$args): string
+    public function classes(...$args): string
     {
         $inputKey = $this->cacheKey($args);
 
@@ -318,6 +320,18 @@ final class TailwindMerge
             }
 
             if (is_array($value)) {
+                if (! array_is_list($value)) {
+                    $value = Arr::toCssClasses($value);
+
+                    if ($value === '') {
+                        return;
+                    }
+
+                    $flatten($value);
+
+                    return;
+                }
+
                 foreach ($value as $v) {
                     $flatten($v);
                 }

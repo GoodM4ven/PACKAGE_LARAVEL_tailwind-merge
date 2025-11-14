@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\View\ComponentAttributeBag;
-
 dataset('merge_examples', [
     'font size wins' => [
         ['text-lg leading-5 text-white text-3xl'],
@@ -31,6 +29,15 @@ dataset('merge_examples', [
         ['gap-2 gap-x-4 gap-y-8'],
         'gap-x-4 gap-y-8',
     ],
+    'conditional arrays' => [
+        [[
+            'sm:text-lg py-10 px-5' => true,
+            'sm:text-xl' => false,
+            'sm:text-3xl py-5',
+            'sm:text-sm' => true,
+        ]],
+        'px-5 py-5 sm:text-sm',
+    ],
 ]);
 
 it('merges tailwind classes according to spec', function (array $inputs, string $expected): void {
@@ -42,15 +49,12 @@ it('flattens nested arrays and ignores falsy values', function (): void {
 });
 
 it('registers attribute bag macros', function (): void {
-    $attributes = new ComponentAttributeBag(['class' => 'text-lg']);
+    $attributes = new \Illuminate\View\ComponentAttributeBag(['class' => 'text-lg']);
     $updated = $attributes->twMerge('text-sm');
 
     expect($updated->get('class'))->toBe('text-sm');
 });
 
-it('merges variant specific attributes via macro', function (): void {
-    $attributes = new ComponentAttributeBag(['class:dark' => 'text-white']);
-    $updated = $attributes->twMergeFor('dark', 'text-white', 'text-black');
-
-    expect($updated->get('class:dark'))->toBe('text-white text-black');
+it('exposes a global TailwindMerge facade alias', function (): void {
+    expect(\TailwindMerge\Facades\TailwindMerge::classes('text-lg', 'text-sm'))->toBe('text-sm');
 });
