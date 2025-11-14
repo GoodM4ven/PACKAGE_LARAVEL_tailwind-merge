@@ -7,10 +7,6 @@ on:
       - 'phpstan.neon.dist'
       - 'phpstan-baseline.neon'
       - '.github/workflows/phpstan.yml'
-    paths-ignore:
-      - '*.md'
-      - '**/*.md'
-      - 'docs/**'
 
 jobs:
   phpstan:

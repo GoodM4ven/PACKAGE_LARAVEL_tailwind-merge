@@ -4,10 +4,6 @@ on:
   push:
     paths:
       - '**/*.php'
-    paths-ignore:
-      - '*.md'
-      - '**/*.md'
-      - 'docs/**'
 
 permissions:
   contents: write
