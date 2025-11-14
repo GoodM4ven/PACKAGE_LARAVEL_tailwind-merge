@@ -1,8 +1,8 @@
 # Tailwind Merger
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/goodm4ven/tailwind-merge.svg?style=flat-square)](https://packagist.org/packages/goodm4ven/tailwind-merge)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/goodm4ven/tailwind-merge/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/goodm4ven/tailwind-merge/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/goodm4ven/tailwind-merge/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/goodm4ven/tailwind-merge/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/goodm4ven/PACKAGE_LARAVEL_tailwind-merge/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/goodm4ven/PACKAGE_LARAVEL_tailwind-merge/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/goodm4ven/PACKAGE_LARAVEL_tailwind-merge/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/goodm4ven/PACKAGE_LARAVEL_tailwind-merge/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/goodm4ven/tailwind-merge.svg?style=flat-square)](https://packagist.org/packages/goodm4ven/tailwind-merge)
 
 Dealing with TailwindCSS classes overriding can either be done with fighting important (`!`) classes, **OR** by using this package to remove the conflicting ones from the targetted component and keep the outside (passed) one instead.
