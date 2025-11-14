@@ -1,5 +1,5 @@
 <?php
 
-use GoodMaven\TailwindMerge\Tests\TestCase;
+use TailwindMerge\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);

@@ -1,16 +1,18 @@
 <?php
 
-namespace GoodMaven\TailwindMerge\Facades;
+declare(strict_types=1);
+
+namespace TailwindMerge\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \GoodMaven\TailwindMerge\TailwindMerge
+ * @method static string merge(...$args)
  */
 class TailwindMerge extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return \GoodMaven\TailwindMerge\TailwindMerge::class;
+        return 'tailwind-merge';
     }
 }
