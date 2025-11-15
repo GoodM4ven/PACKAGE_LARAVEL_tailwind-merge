@@ -58,27 +58,8 @@ composer test
 ```
 
 
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
-
-
 ## Credits
 - Inspired by the [original package](https://github.com/gehrisandro/tailwind-merge-laravel)
+- [ChatGPT - Codex](https://developers.openai.com/codex)
 - [GoodM4ven](https://github.com/GoodM4ven)
 - [All Contributors](../../contributors)
-
-
-## License
-
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
