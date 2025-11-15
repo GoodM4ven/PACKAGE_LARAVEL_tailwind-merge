@@ -56,7 +56,7 @@ it('registers attribute bag macros', function (): void {
 });
 
 it('honors component defaults when no external classes are provided', function (): void {
-    $attributes = new \Illuminate\View\ComponentAttributeBag();
+    $attributes = new \Illuminate\View\ComponentAttributeBag;
 
     expect($attributes->twMerge('text-sm font-semibold')->get('class'))->toBe('text-sm font-semibold');
 });
