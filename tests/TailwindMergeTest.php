@@ -29,6 +29,18 @@ dataset('merge_examples', [
         ['gap-2 gap-x-4 gap-y-8'],
         'gap-x-4 gap-y-8',
     ],
+    'text color keywords' => [
+        ['text-black text-white'],
+        'text-white',
+    ],
+    'background theme colors' => [
+        ['bg-primary-500 bg-primary-700'],
+        'bg-primary-700',
+    ],
+    'text theme colors' => [
+        ['text-gray-500 text-danger-600 text-info-700'],
+        'text-info-700',
+    ],
     'conditional arrays' => [
         [[
             'sm:text-lg py-10 px-5' => true,
