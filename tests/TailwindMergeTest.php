@@ -52,7 +52,20 @@ it('registers attribute bag macros', function (): void {
     $attributes = new \Illuminate\View\ComponentAttributeBag(['class' => 'text-lg']);
     $updated = $attributes->twMerge('text-sm');
 
-    expect($updated->get('class'))->toBe('text-sm');
+    expect($updated->get('class'))->toBe('text-lg');
+});
+
+it('honors component defaults when no external classes are provided', function (): void {
+    $attributes = new \Illuminate\View\ComponentAttributeBag();
+
+    expect($attributes->twMerge('text-sm font-semibold')->get('class'))->toBe('text-sm font-semibold');
+});
+
+it('lets consumer-provided classes take precedence over defaults', function (): void {
+    $attributes = new \Illuminate\View\ComponentAttributeBag(['class' => 'text-lg px-4']);
+    $updated = $attributes->twMerge('text-sm px-2', 'font-semibold');
+
+    expect($updated->get('class'))->toBe('font-semibold text-lg px-4');
 });
 
 it('exposes a global TailwindMerge facade alias', function (): void {

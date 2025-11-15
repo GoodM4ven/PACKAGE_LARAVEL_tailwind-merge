@@ -47,7 +47,7 @@ class TailwindMergeServiceProvider extends PackageServiceProvider
             /** @var ComponentAttributeBag $this */
             $current = $this->get('class', '');
 
-            $merged = twMerge(...$args, $current);
+            $merged = twMerge(...array_merge($args, [$current]));
 
             return $this->except('class')->merge(['class' => $merged]);
         });
