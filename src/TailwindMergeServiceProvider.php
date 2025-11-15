@@ -20,7 +20,7 @@ class TailwindMergeServiceProvider extends PackageServiceProvider
 
     public function packageRegistered(): void
     {
-        $this->app->singleton(TailwindMerge::class, fn() => new TailwindMerge);
+        $this->app->singleton(TailwindMerge::class, fn () => new TailwindMerge);
 
         $this->app->alias(TailwindMerge::class, 'tailwind-merge');
     }
