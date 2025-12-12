@@ -24,7 +24,7 @@ class TailwindMergeServiceProvider extends PackageServiceProvider
     {
         $this->registerJsonSchemaContractAlias();
 
-        $this->app->singleton(TailwindMerge::class, fn() => new TailwindMerge);
+        $this->app->singleton(TailwindMerge::class, fn () => new TailwindMerge);
 
         $this->app->alias(TailwindMerge::class, 'tailwind-merge');
     }
@@ -74,7 +74,7 @@ class TailwindMergeServiceProvider extends PackageServiceProvider
     {
         ClassAliasRegistrar::register(
             [\Illuminate\Contracts\JsonSchema\JsonSchema::class => IlluminateJsonSchema::class],
-            fn() => $this->shouldAliasForBoostMcp(),
+            fn () => $this->shouldAliasForBoostMcp(),
         );
     }
 
