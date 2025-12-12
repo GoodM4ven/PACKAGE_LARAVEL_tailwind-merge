@@ -37,7 +37,7 @@ twMerge([
 // Either
 app('tailwind-merge')->classes('last conflicting classes win');
 // Or
-TailwindMerge::classes('last conflicting classes win');
+\GoodMaven\TailwindMerge\TailwindMerge::classes('last conflicting classes win');
 ```
 
 - Attribute bag macro inside Laravel Blade components
