@@ -81,5 +81,5 @@ it('lets consumer-provided classes take precedence over defaults', function (): 
 });
 
 it('exposes a global TailwindMerge facade alias', function (): void {
-    expect(\TailwindMerge\Facades\TailwindMerge::classes('text-lg', 'text-sm'))->toBe('text-sm');
+    expect(\GoodMaven\TailwindMerge\Facades\TailwindMerge::classes('text-lg', 'text-sm'))->toBe('text-sm');
 });

@@ -35,7 +35,7 @@
     },
     "autoload": {
         "psr-4": {
-            "TailwindMerge\\": "src/"
+            "GoodMaven\\TailwindMerge\\": "src/"
         },
         "files": [
             "src/helpers.php"
@@ -43,7 +43,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "TailwindMerge\\Tests\\": "tests/",
+            "GoodMaven\\TailwindMerge\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -65,10 +65,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "TailwindMerge\\TailwindMergeServiceProvider"
+                "GoodMaven\\TailwindMerge\\TailwindMergeServiceProvider"
             ],
             "aliases": {
-                "TailwindMerge": "TailwindMerge\\Facades\\TailwindMerge"
+                "TailwindMerge": "GoodMaven\\TailwindMerge\\Facades\\TailwindMerge"
             }
         }
     },

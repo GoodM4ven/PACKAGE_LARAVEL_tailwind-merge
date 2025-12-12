@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use TailwindMerge\TailwindMerge;
+use GoodMaven\TailwindMerge\TailwindMerge;
 
 if (! function_exists('twMerge')) {
     /**

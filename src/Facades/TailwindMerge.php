@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TailwindMerge\Facades;
+namespace GoodMaven\TailwindMerge\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

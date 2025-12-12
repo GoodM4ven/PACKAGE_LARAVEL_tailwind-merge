@@ -1,9 +1,9 @@
 <?php
 
-namespace TailwindMerge\Tests;
+namespace GoodMaven\TailwindMerge\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
-use TailwindMerge\TailwindMergeServiceProvider;
+use GoodMaven\TailwindMerge\TailwindMergeServiceProvider;
 
 class TestCase extends Orchestra
 {
