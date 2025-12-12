@@ -34,3 +34,4 @@ testbench.yaml
 /.vscode/*
 !/.vscode/
 !/.vscode/mcp.json
+package-lock.json

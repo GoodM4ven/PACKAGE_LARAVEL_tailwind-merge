@@ -5,9 +5,7 @@
     "devDependencies": {
         "@openai/codex": "^0.71.0",
         "eslint": "^9.36.0",
-        "eslint-plugin-unused-imports": "^4.2.0"
-    },
-    "dependencies": {
+        "eslint-plugin-unused-imports": "^4.2.0",
         "playwright": "^1.57.0"
     }
 }
