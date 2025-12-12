@@ -71,12 +71,31 @@ class TailwindMergeServiceProvider extends PackageServiceProvider
 
     protected function registerJsonSchemaContractAlias(): void
     {
-        if (class_exists(\Illuminate\Contracts\JsonSchema\JsonSchema::class)) {
+        if (! $this->shouldAliasJsonSchemaContract()) {
             return;
         }
 
         if (class_exists(IlluminateJsonSchema::class)) {
             class_alias(IlluminateJsonSchema::class, \Illuminate\Contracts\JsonSchema\JsonSchema::class);
         }
+    }
+
+    protected function shouldAliasJsonSchemaContract(): bool
+    {
+        if (class_exists(\Illuminate\Contracts\JsonSchema\JsonSchema::class, false)) {
+            return false;
+        }
+
+        if (! class_exists(IlluminateJsonSchema::class)) {
+            return false;
+        }
+
+        if (! $this->app->runningInConsole()) {
+            return false;
+        }
+
+        $argv = $_SERVER['argv'] ?? [];
+
+        return in_array('boost:mcp', $argv, true);
     }
 }
