@@ -53,7 +53,7 @@ $attributes->twMerge('last conflicting classes win', 'then last conflicting clas
 
 ## Development
 
-- Read this [regarding](https://github.com/goodm4ven/anvil/blob/main/README.md#development-laravel-boost-and-mcp) MCP.
+- Read this [regarding](https://github.com/goodm4ven/PACKAGE_LARAVEL_anvil/blob/main/README.md#development-laravel-boost-and-mcp) MCP.
 
 
 ## Testing
