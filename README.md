@@ -51,28 +51,9 @@ $attributes->twMerge('last conflicting classes win', 'then last conflicting clas
 ```
 
 
-## Development (Laravel Boost and MCP)
+## Development
 
-- Since the package is utilizing Orchestra Testbench for the testing environment, its configuration file [testbench.yaml](testbench.yaml) should be looked at.
-- Running the MCP server is done with `./vendor/bin/testbench boost:mcp` instead of `php artisan boost:mcp` or optionally via VSC command prompts.
-- (Optional): VSC users should have their MCP client pointing at `./vendor/bin/testbench boost:mcp`. (Check [.vscode/mcp.json](.vscode/mcp.json))
-- (Optional): If you're using ChatGPT Codex in VSC or whatever, make sure your `config.toml` has at least the following:
-
-### Editor MCP Configuration
-
-Your editor's MCP entries in "config.toml" file shuold account for this as well:
-
-```toml
-# (Optional) For Laravel apps
-[mcp_servers.laravel-boost]
-command = "php"
-args = ["artisan", "boost:mcp"]
-
-# For 3rd party packages, including this
-[mcp_servers.laravel-boost-package]
-command = "./vendor/bin/testbench"
-args = ["boost:mcp"]
-```
+- Read this [regarding](https://github.com/goodm4ven/anvil/blob/main/README.md#development-laravel-boost-and-mcp) MCP.
 
 
 ## Testing

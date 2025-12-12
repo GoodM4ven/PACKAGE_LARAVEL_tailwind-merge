@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace GoodMaven\TailwindMerge;
 
+use GoodMaven\Anvil\Fixes\RegisterLaravelBoosterJsonSchemaFix;
 use GoodMaven\TailwindMerge\Facades\TailwindMerge as TailwindMergeFacade;
-use GoodMaven\TailwindMerge\Support\ClassAliasRegistrar;
 use Illuminate\Foundation\AliasLoader;
-use Illuminate\JsonSchema\JsonSchema as IlluminateJsonSchema;
 use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\ComponentAttributeBag;
 use Spatie\LaravelPackageTools\Package;
@@ -22,7 +21,7 @@ class TailwindMergeServiceProvider extends PackageServiceProvider
 
     public function packageRegistered(): void
     {
-        $this->registerJsonSchemaContractAlias();
+        RegisterLaravelBoosterJsonSchemaFix::activate();
 
         $this->app->singleton(TailwindMerge::class, fn () => new TailwindMerge);
 
@@ -68,24 +67,5 @@ class TailwindMergeServiceProvider extends PackageServiceProvider
         if (! class_exists('TailwindMerge')) {
             class_alias(TailwindMergeFacade::class, 'TailwindMerge');
         }
-    }
-
-    protected function registerJsonSchemaContractAlias(): void
-    {
-        ClassAliasRegistrar::register(
-            [\Illuminate\Contracts\JsonSchema\JsonSchema::class => IlluminateJsonSchema::class],
-            fn () => $this->shouldAliasForBoostMcp(),
-        );
-    }
-
-    protected function shouldAliasForBoostMcp(): bool
-    {
-        if (! $this->app->runningInConsole()) {
-            return false;
-        }
-
-        $argv = $_SERVER['argv'] ?? [];
-
-        return in_array('boost:mcp', $argv, true);
     }
 }
