@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace GoodMaven\TailwindMerge;
 
 use GoodMaven\TailwindMerge\Facades\TailwindMerge as TailwindMergeFacade;
+use GoodMaven\TailwindMerge\Support\ClassAliasRegistrar;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\JsonSchema\JsonSchema as IlluminateJsonSchema;
 use Illuminate\View\Compilers\BladeCompiler;
@@ -23,7 +24,7 @@ class TailwindMergeServiceProvider extends PackageServiceProvider
     {
         $this->registerJsonSchemaContractAlias();
 
-        $this->app->singleton(TailwindMerge::class, fn () => new TailwindMerge);
+        $this->app->singleton(TailwindMerge::class, fn() => new TailwindMerge);
 
         $this->app->alias(TailwindMerge::class, 'tailwind-merge');
     }
@@ -71,25 +72,14 @@ class TailwindMergeServiceProvider extends PackageServiceProvider
 
     protected function registerJsonSchemaContractAlias(): void
     {
-        if (! $this->shouldAliasJsonSchemaContract()) {
-            return;
-        }
-
-        if (class_exists(IlluminateJsonSchema::class)) {
-            class_alias(IlluminateJsonSchema::class, \Illuminate\Contracts\JsonSchema\JsonSchema::class);
-        }
+        ClassAliasRegistrar::register(
+            [\Illuminate\Contracts\JsonSchema\JsonSchema::class => IlluminateJsonSchema::class],
+            fn() => $this->shouldAliasForBoostMcp(),
+        );
     }
 
-    protected function shouldAliasJsonSchemaContract(): bool
+    protected function shouldAliasForBoostMcp(): bool
     {
-        if (class_exists(\Illuminate\Contracts\JsonSchema\JsonSchema::class, false)) {
-            return false;
-        }
-
-        if (! class_exists(IlluminateJsonSchema::class)) {
-            return false;
-        }
-
         if (! $this->app->runningInConsole()) {
             return false;
         }
