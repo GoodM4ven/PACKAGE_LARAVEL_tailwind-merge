@@ -2,8 +2,8 @@
 
 namespace GoodMaven\TailwindMerge\Tests;
 
-use Orchestra\Testbench\TestCase as Orchestra;
 use GoodMaven\TailwindMerge\TailwindMergeServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {

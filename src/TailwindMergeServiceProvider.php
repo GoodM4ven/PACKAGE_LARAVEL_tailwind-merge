@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace GoodMaven\TailwindMerge;
 
+use GoodMaven\TailwindMerge\Facades\TailwindMerge as TailwindMergeFacade;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\ComponentAttributeBag;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use GoodMaven\TailwindMerge\Facades\TailwindMerge as TailwindMergeFacade;
 
 class TailwindMergeServiceProvider extends PackageServiceProvider
 {
