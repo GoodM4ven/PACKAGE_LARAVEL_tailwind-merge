@@ -6,6 +6,7 @@ namespace GoodMaven\TailwindMerge;
 
 use GoodMaven\TailwindMerge\Facades\TailwindMerge as TailwindMergeFacade;
 use Illuminate\Foundation\AliasLoader;
+use Illuminate\JsonSchema\JsonSchema as IlluminateJsonSchema;
 use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\ComponentAttributeBag;
 use Spatie\LaravelPackageTools\Package;
@@ -20,6 +21,8 @@ class TailwindMergeServiceProvider extends PackageServiceProvider
 
     public function packageRegistered(): void
     {
+        $this->registerJsonSchemaContractAlias();
+
         $this->app->singleton(TailwindMerge::class, fn () => new TailwindMerge);
 
         $this->app->alias(TailwindMerge::class, 'tailwind-merge');
@@ -63,6 +66,17 @@ class TailwindMergeServiceProvider extends PackageServiceProvider
 
         if (! class_exists('TailwindMerge')) {
             class_alias(TailwindMergeFacade::class, 'TailwindMerge');
+        }
+    }
+
+    protected function registerJsonSchemaContractAlias(): void
+    {
+        if (class_exists(\Illuminate\Contracts\JsonSchema\JsonSchema::class)) {
+            return;
+        }
+
+        if (class_exists(IlluminateJsonSchema::class)) {
+            class_alias(IlluminateJsonSchema::class, \Illuminate\Contracts\JsonSchema\JsonSchema::class);
         }
     }
 }
