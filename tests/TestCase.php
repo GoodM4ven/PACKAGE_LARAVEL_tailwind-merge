@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace VendorName\Skeleton\Tests;
+namespace GoodMaven\TailwindMerge\Tests;
 
 use GoodMaven\Anvil\Concerns\TestableWorkbench;
 use Orchestra\Testbench\Concerns\WithWorkbench;
@@ -20,7 +20,7 @@ class TestCase extends Orchestra
 
     public function getEnvironmentSetUp($app): void
     {
-        $this->setDatabaseTestingEssentials();
+        // $this->setDatabaseTestingEssentials();
     }
 
     protected function defineDatabaseMigrations(): void

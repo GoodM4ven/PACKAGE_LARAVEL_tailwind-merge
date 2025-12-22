@@ -4,8 +4,6 @@ includes: # Larastan is included
 parameters:
     level: 5
     paths:
-        - config
-        - database
         - src
         - workbench
     excludePaths:

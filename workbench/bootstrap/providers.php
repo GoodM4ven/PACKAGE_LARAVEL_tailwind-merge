@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 return [
-    \VendorName\Skeleton\SkeletonServiceProvider::class,
+    \GoodMaven\TailwindMerge\TailwindMergeServiceProvider::class,
     \Workbench\App\Providers\TestableWorkbenchServiceProvider::class,
     // ? Packages during tests
     \Livewire\LivewireServiceProvider::class,

@@ -1,27 +1,28 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "goodm4ven/tailwind-merge",
+    "description": "Resolves TailwindCSS class conflicts in between Laravel Blade component calls",
     "keywords": [
+        "goodm4ven",
         "laravel",
+        "tailwindcss",
         "tallstack",
-        ":vendor_slug",
-        ":package_slug"
+        "conflict",
+        "override",
+        "tailwind-merge"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/goodm4ven/PACKAGE_LARAVEL_tailwind-merge",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "GoodM4ven",
+            "email": "goodm4ven@proton.me",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.4||^8.3",
         "goodm4ven/anvil": "^1.0",
-        "goodm4ven/tailwind-merge": "^1.0",
         "laravel/boost": "^1.8",
-        "livewire/livewire": "^3.7",
         "illuminate/contracts": "^11.0||^12.0",
         "illuminate/support": "^11.0||^12.0",
         "spatie/laravel-package-tools": "^1.16"
@@ -29,6 +30,7 @@
     "require-dev": {
         "larastan/larastan": "^3.0",
         "laravel/pint": "^1.14",
+        "livewire/livewire": "^3.7",
         "nunomaduro/collision": "^8.8",
         "orchestra/testbench": "^10.0.0||^9.0.0",
         "pestphp/pest": "^4.0",
@@ -41,13 +43,15 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
-        }
+            "GoodMaven\\TailwindMerge\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/",
+            "GoodMaven\\TailwindMerge\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/",
             "Workbench\\Database\\Factories\\": "workbench/database/factories/",
             "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
@@ -83,7 +87,7 @@
             "@analyse"
         ],
         "publishfront": [
-            "@php vendor/bin/testbench vendor:publish --tag=:package_slug-assets --force"
+            "@php vendor/bin/testbench vendor:publish --tag=tailwind-merge-assets --force"
         ],
         "serve": [
             "Composer\\Config::disableProcessTimeout",
@@ -113,10 +117,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "GoodMaven\\TailwindMerge\\TailwindMergeServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "TailwindMerge": "GoodMaven\\TailwindMerge\\Facades\\TailwindMerge"
             }
         }
     },
