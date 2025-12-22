@@ -32,6 +32,7 @@ final class TailwindMerge
         'font-size' => [
             '/^text-(xs|sm|base|lg|xl|[2-9]xl)$/',
             '/^text-\[[^\]]+\]$/',
+            '/^text-\([^)]+\)$/',
         ],
 
         // leading-* (line-height)
@@ -39,6 +40,7 @@ final class TailwindMerge
             '/^leading-(none|tight|snug|normal|relaxed|loose)$/',
             '/^leading-\d+$/',
             '/^leading-\[[^\]]+\]$/',
+            '/^leading-\([^)]+\)$/',
         ],
 
         // font weights
@@ -75,6 +77,7 @@ final class TailwindMerge
         'object-position' => [
             '/^object-(?:center|top|bottom|left|right|left-top|left-bottom|right-top|right-bottom)$/',
             '/^object-\[[^\]]+\]$/',
+            '/^object-\([^)]+\)$/',
         ],
 
         'overflow' => [
@@ -89,22 +92,26 @@ final class TailwindMerge
             // v4: shadow-xs, shadow-sm, shadow-md, ...
             '/^shadow(-(xs|sm|md|lg|xl|2xl))?$/',
             '/^shadow-\[[^\]]+\]$/',
+            '/^shadow-\([^)]+\)$/',
         ],
 
         'drop-shadow' => [
             '/^drop-shadow(-(xs|sm|md|lg|xl))?$/',
             '/^drop-shadow-\[[^\]]+\]$/',
+            '/^drop-shadow-\([^)]+\)$/',
         ],
 
         'blur' => [
             // v3 blur-sm/blur, v4 blur-xs/blur-sm, etc.
             '/^blur(-(xs|sm|md|lg|xl|2xl|3xl))?$/',
             '/^blur-\[[^\]]+\]$/',
+            '/^blur-\([^)]+\)$/',
         ],
 
         'backdrop-blur' => [
             '/^backdrop-blur(-(xs|sm|md|lg|xl|2xl|3xl))?$/',
             '/^backdrop-blur-\[[^\]]+\]$/',
+            '/^backdrop-blur-\([^)]+\)$/',
         ],
 
         'border-radius' => [
@@ -113,6 +120,7 @@ final class TailwindMerge
             '/^rounded(-(none|xs|sm|md|lg|xl|2xl|3xl|full))?$/',
             '/^rounded[trblse]{0,2}-(none|xs|sm|md|lg|xl|2xl|3xl|full)$/',
             '/^rounded(-[trblse]{1,2})?-\[[^\]]+\]$/',
+            '/^rounded(-[trblse]{1,2})?-\([^)]+\)$/',
         ],
 
         // -----------------
@@ -200,11 +208,13 @@ final class TailwindMerge
             '/^outline$/',          // v3 bare outline
             '/^outline-\d+$/',
             '/^outline-\[[^\]]+\]$/',
+            '/^outline-\([^)]+\)$/',
         ],
         'ring-width' => [
             '/^ring$/',             // v3 bare ring (v4 -> ring-3)
             '/^ring-\d+$/',
             '/^ring-\[[^\]]+\]$/',
+            '/^ring-\([^)]+\)$/',
         ],
 
         // -----------------
@@ -214,12 +224,14 @@ final class TailwindMerge
             '/^bg-(black|white|transparent|current)(?:\/(\d+|\[[^\]]+\]))?$/',
             '/^bg-[a-z0-9-]+-(50|[1-9]00|950)(?:\/(\d+|\[[^\]]+\]))?$/',
             '/^bg-\[[^\]]+\]$/',
+            '/^bg-\([^)]+\)$/',
         ],
 
         'text-color' => [
             '/^text-(black|white|transparent|current)(?:\/(\d+|\[[^\]]+\]))?$/',
             '/^text-[a-z0-9-]+-(50|[1-9]00|950)(?:\/(\d+|\[[^\]]+\]))?$/',
             '/^text-\[[^\]]+\]$/',
+            '/^text-\([^)]+\)$/',
         ],
     ];
 

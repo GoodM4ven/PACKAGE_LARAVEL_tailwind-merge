@@ -4,7 +4,8 @@
             <div class="space-y-1">
                 <p class="text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">Tailwind Merge</p>
                 <h1 class="text-2xl font-semibold text-slate-900">See conflicting classes melt into one clear set</h1>
-                <p class="text-sm text-slate-600">Layer component defaults with call-time overrides—last entry wins inside each field and across them.</p>
+                <p class="text-sm text-slate-600">Layer component defaults with call-time overrides—last entry wins
+                    inside each field and across them.</p>
             </div>
             <div class="flex flex-wrap gap-2">
                 <span
@@ -26,9 +27,14 @@
                 </div>
 
                 <div class="space-y-2">
-                    <label class="text-xs font-semibold uppercase tracking-[0.15em] text-slate-600">The component</label>
+                    <label
+                        class="text-xs font-semibold uppercase tracking-[0.15em] text-slate-600"
+                        for="component-input"
+                    >The component</label>
                     <textarea
                         class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-3 text-sm text-slate-800 shadow-inner focus:border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-200"
+                        id="component-input"
+                        data-testid="component-input"
                         wire:model.live.debounce.250ms="original"
                         spellcheck="false"
                         rows="3"
@@ -36,14 +42,20 @@
                 </div>
 
                 <div class="space-y-2">
-                    <label class="text-xs font-semibold uppercase tracking-[0.15em] text-slate-600">The component call</label>
+                    <label
+                        class="text-xs font-semibold uppercase tracking-[0.15em] text-slate-600"
+                        for="call-input"
+                    >The component call</label>
                     <textarea
                         class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-3 text-sm text-slate-800 shadow-inner focus:border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-200"
+                        id="call-input"
+                        data-testid="call-input"
                         wire:model.live.debounce.250ms="override"
                         spellcheck="false"
                         rows="3"
                     ></textarea>
-                    <p class="text-xs text-slate-500">Later classes inside a field win; call-time overrides beat component defaults.</p>
+                    <p class="text-xs text-slate-500">Later classes inside a field win; call-time overrides beat
+                        component defaults.</p>
                 </div>
 
             </div>
@@ -60,10 +72,12 @@
                     >Live updated</span>
                 </div>
                 <textarea
-                    class="h-48 w-full resize-none rounded-xl border border-slate-200 bg-slate-50 px-3 py-3 text-xs font-mono text-slate-800 shadow-inner focus:outline-none"
+                    class="h-48 w-full resize-none rounded-xl border border-slate-200 bg-slate-50 px-3 py-3 font-mono text-xs text-slate-800 shadow-inner focus:outline-none"
+                    id="merged-output"
+                    data-testid="merged-output"
                     rows="6"
                     disabled
-                >{{ $this->merged }}</textarea>
+                >{{ trim($this->merged) }}</textarea>
 
                 <div class="grid gap-3 sm:grid-cols-2">
                     <div class="rounded-xl border border-slate-200 bg-slate-50 p-4 shadow-inner">
