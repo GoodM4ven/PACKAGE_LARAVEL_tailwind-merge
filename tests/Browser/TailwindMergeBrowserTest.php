@@ -11,10 +11,12 @@ it('shows the initial merged classes from the workbench demo', function (): void
     $defaultOriginal = 'inline-flex items-center gap-2 px-4 py-2 text-sm text-slate-800 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 shadow-sm';
     $defaultOverride = 'px-6 bg-sky-500 text-white hover:bg-sky-600 shadow-md rounded-xl';
 
-    $page->assertValue('[data-testid="component-input"]', $defaultOriginal);
-    $page->assertValue('[data-testid="call-input"]', $defaultOverride);
+    waitForValue($page, '[data-testid="component-input"]', $defaultOriginal);
+    waitForValue($page, '[data-testid="call-input"]', $defaultOverride);
 
     $expected = trim(twMerge($defaultOriginal, $defaultOverride));
+    waitForMergedValue($page, '[data-testid="merged-output"]', $expected);
+
     $merged = $page->script("document.querySelector('[data-testid=\"merged-output\"]').value");
 
     expect($merged)->toBe($expected);
@@ -36,6 +38,7 @@ it('merges tailwind v4 classes in the browser demo, including new arbitrary valu
         ->type('[data-testid="call-input"]', $override)
         ->wait(2);
 
+    waitForMergedValue($page, '[data-testid="merged-output"]', $expected);
     $merged = $page->script("document.querySelector('[data-testid=\"merged-output\"]').value");
 
     expect($merged)->toBe($expected);
