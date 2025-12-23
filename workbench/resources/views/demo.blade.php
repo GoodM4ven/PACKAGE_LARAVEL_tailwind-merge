@@ -31,7 +31,11 @@
 
     <!-- Body Scripts -->
     <script src="{{ asset('build/demo.js') }}"></script>
-    @livewireScriptConfig
+    @env('local')
+        @livewireScriptConfig
+    @else
+        @livewireScripts
+    @endenv
 
     <!-- Injections -->
     @stack('injections')
