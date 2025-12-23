@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 it('shows the initial merged classes from the workbench demo', function (): void {
     $page = visit('/')
-        ->wait(2)
+        ->wait(1)
         ->assertNoJavaScriptErrors()
         ->assertPresent('[data-testid="component-input"]');
 
@@ -24,7 +24,7 @@ it('shows the initial merged classes from the workbench demo', function (): void
 
 it('merges tailwind v4 classes in the browser demo, including new arbitrary value syntax', function (): void {
     $page = visit('/')
-        ->wait(3)
+        ->wait(1)
         ->assertNoJavaScriptErrors()
         ->assertPresent('[data-testid="component-input"]');
 
@@ -36,7 +36,7 @@ it('merges tailwind v4 classes in the browser demo, including new arbitrary valu
         ->type('[data-testid="component-input"]', $original)
         ->clear('[data-testid="call-input"]')
         ->type('[data-testid="call-input"]', $override)
-        ->wait(2);
+        ->wait(1);
 
     waitForMergedValue($page, '[data-testid="merged-output"]', $expected);
     $merged = $page->script("document.querySelector('[data-testid=\"merged-output\"]').value");
