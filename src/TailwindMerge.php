@@ -85,6 +85,100 @@ final class TailwindMerge
         ],
 
         // -----------------
+        // FLEX / GRID
+        // -----------------
+        'flex-direction' => [
+            '/^flex-(row|row-reverse|col|col-reverse)$/',
+        ],
+        'flex-wrap' => [
+            '/^flex-(wrap|wrap-reverse|nowrap)$/',
+        ],
+        'flex' => [
+            '/^flex-(1|auto|initial|none)$/',
+            '/^flex-\d+$/',
+            '/^flex-\[[^\]]+\]$/',
+            '/^flex-\([^)]+\)$/',
+        ],
+        'flex-grow' => [
+            '/^grow(-(0|[1-9]\d*))?$/',
+            '/^grow-\[[^\]]+\]$/',
+            '/^grow-\([^)]+\)$/',
+        ],
+        'flex-shrink' => [
+            '/^shrink(-(0|[1-9]\d*))?$/',
+            '/^shrink-\[[^\]]+\]$/',
+            '/^shrink-\([^)]+\)$/',
+        ],
+        'flex-basis' => [
+            '/^basis-.+$/',
+        ],
+        'order' => [
+            '/^order-(first|last|none|\d+)$/',
+        ],
+        'justify-content' => [
+            '/^justify-(start|end|center|between|around|evenly|stretch)$/',
+        ],
+        'justify-items' => [
+            '/^justify-items-(start|end|center|stretch)$/',
+        ],
+        'justify-self' => [
+            '/^justify-self-(auto|start|end|center|stretch)$/',
+        ],
+        'align-content' => [
+            '/^content-(start|end|center|between|around|evenly|stretch)$/',
+        ],
+        'align-items' => [
+            '/^items-(start|end|center|baseline|stretch)$/',
+        ],
+        'align-self' => [
+            '/^self-(auto|start|end|center|stretch|baseline)$/',
+        ],
+        'place-content' => [
+            '/^place-content-(start|end|center|between|around|evenly|stretch)$/',
+        ],
+        'place-items' => [
+            '/^place-items-(start|end|center|baseline|stretch)$/',
+        ],
+        'place-self' => [
+            '/^place-self-(auto|start|end|center|stretch)$/',
+        ],
+        'grid-template-columns' => [
+            '/^grid-cols-(\d+|none)$/',
+            '/^grid-cols-\[[^\]]+\]$/',
+            '/^grid-cols-\([^)]+\)$/',
+        ],
+        'grid-template-rows' => [
+            '/^grid-rows-(\d+|none)$/',
+            '/^grid-rows-\[[^\]]+\]$/',
+            '/^grid-rows-\([^)]+\)$/',
+        ],
+        'grid-column' => [
+            '/^col-(auto|span-\d+|span-full)$/',
+            '/^col-(start|end)-(\d+|auto)$/',
+            '/^col-\[[^\]]+\]$/',
+            '/^col-\([^)]+\)$/',
+        ],
+        'grid-row' => [
+            '/^row-(auto|span-\d+|span-full)$/',
+            '/^row-(start|end)-(\d+|auto)$/',
+            '/^row-\[[^\]]+\]$/',
+            '/^row-\([^)]+\)$/',
+        ],
+        'grid-auto-flow' => [
+            '/^grid-flow-(row|col|dense|row-dense|col-dense)$/',
+        ],
+        'grid-auto-columns' => [
+            '/^auto-cols-(auto|min|max|fr)$/',
+            '/^auto-cols-\[[^\]]+\]$/',
+            '/^auto-cols-\([^)]+\)$/',
+        ],
+        'grid-auto-rows' => [
+            '/^auto-rows-(auto|min|max|fr)$/',
+            '/^auto-rows-\[[^\]]+\]$/',
+            '/^auto-rows-\([^)]+\)$/',
+        ],
+
+        // -----------------
         // SHADOW / BLUR / RADIUS (v3 + v4 names)
         // -----------------
         'shadow' => [
@@ -133,6 +227,22 @@ final class TailwindMerge
         ],
         'height' => [
             '/^h-.+$/',
+        ],
+        'min-width' => [
+            '/^min-w-.+$/',
+        ],
+        'max-width' => [
+            '/^max-w-.+$/',
+        ],
+        'min-height' => [
+            '/^min-h-.+$/',
+        ],
+        'max-height' => [
+            '/^max-h-.+$/',
+        ],
+        'inset' => [
+            '/^(inset|top|right|bottom|left)(-[^:]+)?$/',
+            '/^inset-[xy]-[^:]+$/',
         ],
 
         // Padding
@@ -208,7 +318,6 @@ final class TailwindMerge
             '/^outline$/',          // v3 bare outline
             '/^outline-\d+$/',
             '/^outline-\[[^\]]+\]$/',
-            '/^outline-\([^)]+\)$/',
         ],
         'ring-width' => [
             '/^ring$/',             // v3 bare ring (v4 -> ring-3)
@@ -224,14 +333,133 @@ final class TailwindMerge
             '/^bg-(black|white|transparent|current)(?:\/(\d+|\[[^\]]+\]))?$/',
             '/^bg-[a-z0-9-]+-(50|[1-9]00|950)(?:\/(\d+|\[[^\]]+\]))?$/',
             '/^bg-\[[^\]]+\]$/',
-            '/^bg-\([^)]+\)$/',
+            '/^bg-\(--[A-Za-z0-9_-]+\)$/',
         ],
 
         'text-color' => [
             '/^text-(black|white|transparent|current)(?:\/(\d+|\[[^\]]+\]))?$/',
             '/^text-[a-z0-9-]+-(50|[1-9]00|950)(?:\/(\d+|\[[^\]]+\]))?$/',
             '/^text-\[[^\]]+\]$/',
-            '/^text-\([^)]+\)$/',
+            '/^text-\(--[A-Za-z0-9_-]+\)$/',
+        ],
+
+        // -----------------
+        // BACKGROUND / BORDER / EFFECTS
+        // -----------------
+        'background-attachment' => [
+            '/^bg-(fixed|local|scroll)$/',
+        ],
+        'background-position' => [
+            '/^bg-(center|top|bottom|left|right|left-top|left-bottom|right-top|right-bottom)$/',
+            '/^bg-\[[^\]]+\]$/',
+            '/^bg-\([^)]+\)$/',
+        ],
+        'background-repeat' => [
+            '/^bg-(repeat|no-repeat|repeat-x|repeat-y|repeat-round|repeat-space)$/',
+        ],
+        'background-clip' => [
+            '/^bg-clip-(border|padding|content|text)$/',
+        ],
+        'background-size' => [
+            '/^bg-(auto|cover|contain)$/',
+            '/^bg-\[[^\]]+\]$/',
+            '/^bg-\([^)]+\)$/',
+        ],
+        'border-width' => [
+            '/^border(-(0|2|4|8))?$/',
+            '/^border-\d+$/',
+            '/^border-\[[^\]]+\]$/',
+            '/^border-\([^)]+\)$/',
+            '/^border-[trblxy]-[^:]+$/',
+        ],
+        'border-style' => [
+            '/^border-(solid|dashed|dotted|double|hidden|none)$/',
+        ],
+        'border-color' => [
+            '/^border-(black|white|transparent|current)(?:\/(\d+|\[[^\]]+\]))?$/',
+            '/^border-[a-z0-9-]+-(50|[1-9]00|950)(?:\/(\d+|\[[^\]]+\]))?$/',
+            '/^border-\[[^\]]+\]$/',
+            '/^border-\([^)]+\)$/',
+        ],
+        'outline-color' => [
+            '/^outline-(black|white|transparent|current)(?:\/(\d+|\[[^\]]+\]))?$/',
+            '/^outline-[a-z0-9-]+-(50|[1-9]00|950)(?:\/(\d+|\[[^\]]+\]))?$/',
+            '/^outline-\[[^\]]+\]$/',
+            '/^outline-\([^)]+\)$/',
+        ],
+        'outline-offset' => [
+            '/^outline-offset-\d+$/',
+            '/^outline-offset-\[[^\]]+\]$/',
+            '/^outline-offset-\([^)]+\)$/',
+        ],
+        'opacity' => [
+            '/^opacity-\d+$/',
+            '/^opacity-\[[^\]]+\]$/',
+            '/^opacity-\([^)]+\)$/',
+        ],
+        'mix-blend-mode' => [
+            '/^mix-blend-[a-z-]+$/',
+        ],
+        'background-blend-mode' => [
+            '/^bg-blend-[a-z-]+$/',
+        ],
+
+        // -----------------
+        // TRANSFORM / TRANSITION
+        // -----------------
+        'transform' => [
+            '/^transform$/',
+            '/^transform-none$/',
+        ],
+        'transform-origin' => [
+            '/^origin-[a-z-]+$/',
+            '/^origin-\[[^\]]+\]$/',
+            '/^origin-\([^)]+\)$/',
+        ],
+        'translate' => [
+            '/^translate-[xyz]-[^:]+$/',
+            '/^translate-[^:]+$/',
+        ],
+        'scale' => [
+            '/^scale[xyz]?-[^:]+$/',
+        ],
+        'rotate' => [
+            '/^rotate-[^:]+$/',
+        ],
+        'skew' => [
+            '/^skew-[xy]-[^:]+$/',
+        ],
+        'transition-property' => [
+            '/^transition(-(none|all|colors|opacity|shadow|transform))?$/',
+        ],
+        'transition-duration' => [
+            '/^duration-\d+$/',
+            '/^duration-\[[^\]]+\]$/',
+            '/^duration-\([^)]+\)$/',
+        ],
+        'transition-timing' => [
+            '/^ease-[a-z-]+$/',
+        ],
+        'transition-delay' => [
+            '/^delay-\d+$/',
+            '/^delay-\[[^\]]+\]$/',
+            '/^delay-\([^)]+\)$/',
+        ],
+        'animation' => [
+            '/^animate-[^\\s]+$/',
+        ],
+
+        // -----------------
+        // INTERACTIVITY
+        // -----------------
+        'cursor' => [
+            '/^cursor-[^\\s]+$/',
+        ],
+        'pointer-events' => [
+            '/^pointer-events-(auto|none)$/',
+        ],
+        'user-select' => [
+            '/^select-(none|text|all|auto)$/',
         ],
     ];
 

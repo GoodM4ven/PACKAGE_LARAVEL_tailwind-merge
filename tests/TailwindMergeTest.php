@@ -60,6 +60,42 @@ dataset('merge_examples', [
         ]],
         'px-5 py-5 sm:text-sm',
     ],
+    'flex basis arbitrary' => [
+        ['basis-1/2 basis-(200px)'],
+        'basis-(200px)',
+    ],
+    'grid columns' => [
+        ['grid-cols-3 grid-cols-5'],
+        'grid-cols-5',
+    ],
+    'border color shades' => [
+        ['border-black border-red-500'],
+        'border-red-500',
+    ],
+    'outline color arbitrary' => [
+        ['outline-red-500 outline-(--brand-outline)'],
+        'outline-(--brand-outline)',
+    ],
+    'opacity scales' => [
+        ['opacity-50 opacity-75'],
+        'opacity-75',
+    ],
+    'translate axis' => [
+        ['translate-x-2 translate-x-4'],
+        'translate-x-4',
+    ],
+    'transition duration' => [
+        ['duration-200 duration-500'],
+        'duration-500',
+    ],
+    'user select' => [
+        ['select-none select-text'],
+        'select-text',
+    ],
+    'background position arbitrary' => [
+        ['bg-center bg-(left_20px_top_10px)'],
+        'bg-(left_20px_top_10px)',
+    ],
 ]);
 
 it('merges tailwind classes according to spec', function (array $inputs, string $expected): void {
