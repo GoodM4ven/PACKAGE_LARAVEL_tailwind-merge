@@ -64,6 +64,26 @@ dataset('merge_examples', [
         ['basis-1/2 basis-(200px)'],
         'basis-(200px)',
     ],
+    'aspect ratio' => [
+        ['aspect-square aspect-video'],
+        'aspect-video',
+    ],
+    'float merging' => [
+        ['float-left float-end'],
+        'float-end',
+    ],
+    'overscroll axis' => [
+        ['overscroll-y-auto overscroll-y-none'],
+        'overscroll-y-none',
+    ],
+    'decoration line vs thickness' => [
+        ['underline no-underline decoration-2 decoration-4'],
+        'no-underline decoration-4',
+    ],
+    'filter combination' => [
+        ['blur-sm grayscale blur'],
+        'grayscale blur',
+    ],
     'grid columns' => [
         ['grid-cols-3 grid-cols-5'],
         'grid-cols-5',
@@ -83,6 +103,14 @@ dataset('merge_examples', [
     'translate axis' => [
         ['translate-x-2 translate-x-4'],
         'translate-x-4',
+    ],
+    'scroll snap types' => [
+        ['snap-x snap-y snap-center snap-start'],
+        'snap-y snap-start',
+    ],
+    'z index arbitrary' => [
+        ['z-10 z-[99]'],
+        'z-[99]',
     ],
     'transition duration' => [
         ['duration-200 duration-500'],

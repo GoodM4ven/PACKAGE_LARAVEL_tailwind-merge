@@ -28,6 +28,14 @@ final class TailwindMerge
         // TYPOGRAPHY
         // -----------------
 
+        'font-family' => [
+            '/^font-[A-Za-z0-9_-]+$/',
+        ],
+
+        'font-style' => [
+            '/^(italic|not-italic)$/',
+        ],
+
         // text-{size} (v3 + v4, including arbitrary length)
         'font-size' => [
             '/^text-(xs|sm|base|lg|xl|[2-9]xl)$/',
@@ -49,6 +57,18 @@ final class TailwindMerge
             '/^font-\d+$/',
         ],
 
+        'font-stretch' => [
+            '/^font-stretch-[A-Za-z0-9_-]+$/',
+        ],
+
+        'font-variant-numeric' => [
+            '/^(normal-nums|ordinal|slashed-zero|lining-nums|oldstyle-nums|proportional-nums|tabular-nums|diagonal-fractions|stacked-fractions)$/',
+        ],
+
+        'letter-spacing' => [
+            '/^tracking-[A-Za-z0-9_.-]+$/',
+        ],
+
         // text-align
         'text-align' => [
             '/^text-(left|center|right|justify|start|end)$/',
@@ -59,11 +79,77 @@ final class TailwindMerge
             '/^(uppercase|lowercase|capitalize|normal-case)$/',
         ],
 
+        'font-smoothing' => [
+            '/^(antialiased|subpixel-antialiased)$/',
+        ],
+
+        'line-clamp' => [
+            '/^line-clamp-(\d+|\[[^\]]+\]|\([^)]+\))$/',
+        ],
+
+        'list-style-type' => [
+            '/^list-(none|disc|decimal|circle|square|roman|upper-roman|lower-roman|alpha|upper-alpha|lower-alpha)$/',
+            '/^list-(?!inside|outside)[A-Za-z0-9_-]+$/',
+        ],
+        'list-style-position' => [
+            '/^list-(inside|outside)$/',
+        ],
+        'list-style-image' => [
+            '/^list-image-(none|\[[^\]]+\]|\([^)]+\))$/',
+        ],
+        'text-decoration-line' => [
+            '/^(underline|overline|line-through|no-underline)$/',
+        ],
+        'text-decoration-color' => [
+            '/^decoration-(black|white|transparent|current)(?:\/(\d+|\[[^\]]+\]))?$/',
+            '/^decoration-[a-z0-9-]+-(50|[1-9]00|950)(?:\/(\d+|\[[^\]]+\]))?$/',
+            '/^decoration-\[[^\]]+\]$/',
+            '/^decoration-\([^)]+\)$/',
+        ],
+        'text-decoration-style' => [
+            '/^decoration-(solid|double|dotted|dashed|wavy)$/',
+        ],
+        'text-decoration-thickness' => [
+            '/^decoration-(auto|from-font)$/',
+            '/^decoration-\d+$/',
+            '/^decoration-\[[^\]]+\]$/',
+            '/^decoration-\([^)]+\)$/',
+        ],
+        'text-underline-offset' => [
+            '/^underline-offset-\d+$/',
+            '/^underline-offset-\[[^\]]+\]$/',
+            '/^underline-offset-\([^)]+\)$/',
+        ],
+        'text-overflow' => [
+            '/^(truncate|text-ellipsis|text-clip)$/',
+        ],
+        'text-wrap' => [
+            '/^text-(wrap|nowrap|balance|pretty)$/',
+        ],
+        'text-indent' => [
+            '/^indent-[^:]+$/',
+        ],
+        'vertical-align' => [
+            '/^align-(baseline|top|middle|bottom|text-top|text-bottom|sub|super)$/',
+        ],
+        'white-space' => [
+            '/^whitespace-(normal|nowrap|pre|pre-line|pre-wrap|break-spaces)$/',
+        ],
+        'word-break' => [
+            '/^(break-normal|break-words|break-all|break-keep)$/',
+        ],
+        'hyphens' => [
+            '/^hyphens-(none|manual|auto)$/',
+        ],
+        'content' => [
+            '/^content-(\[[^\]]+\]|\([^)]+\))$/',
+        ],
+
         // -----------------
         // DISPLAY / POSITION
         // -----------------
         'display' => [
-            '/^(block|inline-block|inline|flex|inline-flex|grid|inline-grid|table|hidden|contents|flow-root)$/',
+            '/^(block|inline-block|inline|flex|inline-flex|grid|inline-grid|table|inline-table|table-caption|table-cell|table-column|table-column-group|table-footer-group|table-header-group|table-row|table-row-group|list-item|hidden|contents|flow-root)$/',
         ],
 
         'position' => [
@@ -82,6 +168,72 @@ final class TailwindMerge
 
         'overflow' => [
             '/^overflow-(auto|hidden|clip|visible|scroll)$/',
+        ],
+        'overflow-x' => [
+            '/^overflow-x-(auto|hidden|clip|visible|scroll)$/',
+        ],
+        'overflow-y' => [
+            '/^overflow-y-(auto|hidden|clip|visible|scroll)$/',
+        ],
+
+        'overscroll-behavior' => [
+            '/^overscroll-(auto|contain|none)$/',
+        ],
+        'overscroll-behavior-x' => [
+            '/^overscroll-x-(auto|contain|none)$/',
+        ],
+        'overscroll-behavior-y' => [
+            '/^overscroll-y-(auto|contain|none)$/',
+        ],
+
+        'float' => [
+            '/^float-(left|right|none|start|end)$/',
+        ],
+
+        'clear' => [
+            '/^clear-(left|right|both|none|start|end)$/',
+        ],
+
+        'isolation' => [
+            '/^(isolate|isolation-auto)$/',
+        ],
+
+        'visibility' => [
+            '/^(visible|invisible|collapse)$/',
+        ],
+
+        'z-index' => [
+            '/^z-(auto|-?\\d+)$/',
+            '/^z-\\[[^\\]]+\\]$/',
+            '/^z-\\([^)]+\\)$/',
+        ],
+
+        'aspect-ratio' => [
+            '/^aspect-(auto|square|video|\\d+\\/\\d+|\\[[^\\]]+\\]|\\([^)]+\\))$/',
+        ],
+
+        'columns' => [
+            '/^columns-(\\d+|auto|\\[[^\\]]+\\]|\\([^)]+\\))$/',
+        ],
+
+        'break-after' => [
+            '/^break-after-(auto|avoid|all|page|left|right|column)$/',
+        ],
+
+        'break-before' => [
+            '/^break-before-(auto|avoid|all|page|left|right|column)$/',
+        ],
+
+        'break-inside' => [
+            '/^break-inside-(auto|avoid|avoid-page|avoid-column)$/',
+        ],
+
+        'box-decoration' => [
+            '/^box-decoration-(slice|clone)$/',
+        ],
+
+        'box-sizing' => [
+            '/^box-(border|content)$/',
         ],
 
         // -----------------
@@ -241,8 +393,12 @@ final class TailwindMerge
             '/^max-h-.+$/',
         ],
         'inset' => [
-            '/^(inset|top|right|bottom|left)(-[^:]+)?$/',
+            '/^(inset|top|right|bottom|left|start|end)(-[^:]+)?$/',
             '/^inset-[xy]-[^:]+$/',
+        ],
+
+        'size' => [
+            '/^size-.+$/',
         ],
 
         // Padding
@@ -267,6 +423,12 @@ final class TailwindMerge
         'padding-l' => [
             '/^pl-[^:]+$/',
         ],
+        'padding-inline-start' => [
+            '/^ps-[^:]+$/',
+        ],
+        'padding-inline-end' => [
+            '/^pe-[^:]+$/',
+        ],
 
         // Margin
         'margin-all' => [
@@ -289,6 +451,12 @@ final class TailwindMerge
         ],
         'margin-l' => [
             '/^ml-[^:]+$/',
+        ],
+        'margin-inline-start' => [
+            '/^ms-[^:]+$/',
+        ],
+        'margin-inline-end' => [
+            '/^me-[^:]+$/',
         ],
 
         // gap / space-between
@@ -354,11 +522,19 @@ final class TailwindMerge
             '/^bg-\[[^\]]+\]$/',
             '/^bg-\([^)]+\)$/',
         ],
+        'background-image' => [
+            '/^bg-(none|gradient-to-(t|tr|r|br|b|bl|l|tl))$/',
+            '/^bg-\[[^\]]+\]$/',
+            '/^bg-\([^)]+\)$/',
+        ],
         'background-repeat' => [
             '/^bg-(repeat|no-repeat|repeat-x|repeat-y|repeat-round|repeat-space)$/',
         ],
         'background-clip' => [
             '/^bg-clip-(border|padding|content|text)$/',
+        ],
+        'background-origin' => [
+            '/^bg-origin-(border|padding|content)$/',
         ],
         'background-size' => [
             '/^bg-(auto|cover|contain)$/',
@@ -370,7 +546,7 @@ final class TailwindMerge
             '/^border-\d+$/',
             '/^border-\[[^\]]+\]$/',
             '/^border-\([^)]+\)$/',
-            '/^border-[trblxy]-[^:]+$/',
+            '/^border-[trblxyse]-[^:]+$/',
         ],
         'border-style' => [
             '/^border-(solid|dashed|dotted|double|hidden|none)$/',
@@ -392,6 +568,11 @@ final class TailwindMerge
             '/^outline-offset-\[[^\]]+\]$/',
             '/^outline-offset-\([^)]+\)$/',
         ],
+        'text-shadow' => [
+            '/^text-shadow(-(2xs|xs|sm|md|lg))?$/',
+            '/^text-shadow-\[[^\]]+\]$/',
+            '/^text-shadow-\([^)]+\)$/',
+        ],
         'opacity' => [
             '/^opacity-\d+$/',
             '/^opacity-\[[^\]]+\]$/',
@@ -402,6 +583,105 @@ final class TailwindMerge
         ],
         'background-blend-mode' => [
             '/^bg-blend-[a-z-]+$/',
+        ],
+        'mask-clip' => [
+            '/^mask-clip-[A-Za-z0-9_-]+$/',
+        ],
+        'mask-composite' => [
+            '/^mask-composite-[A-Za-z0-9_-]+$/',
+        ],
+        'mask-image' => [
+            '/^mask-image-(none|\[[^\\]]+\\]|\\([^)]+\\))$/',
+        ],
+        'mask-mode' => [
+            '/^mask-mode-[A-Za-z0-9_-]+$/',
+        ],
+        'mask-origin' => [
+            '/^mask-origin-[A-Za-z0-9_-]+$/',
+        ],
+        'mask-position' => [
+            '/^mask-position-[^\\s]+$/',
+        ],
+        'mask-repeat' => [
+            '/^mask-repeat-[A-Za-z0-9_-]+$/',
+        ],
+        'mask-size' => [
+            '/^mask-size-[^\\s]+$/',
+        ],
+        'mask-type' => [
+            '/^mask-type-(luminance|alpha)$/',
+        ],
+
+        // Filters & Backdrop
+        'filter' => [
+            '/^filter$/',
+            '/^filter-none$/',
+        ],
+        'brightness' => [
+            '/^brightness-[^\\s]+$/',
+        ],
+        'contrast' => [
+            '/^contrast-[^\\s]+$/',
+        ],
+        'grayscale' => [
+            '/^grayscale(-(0))?$/',
+        ],
+        'hue-rotate' => [
+            '/^hue-rotate-[^\\s]+$/',
+        ],
+        'invert' => [
+            '/^invert(-(0))?$/',
+        ],
+        'saturate' => [
+            '/^saturate-[^\\s]+$/',
+        ],
+        'sepia' => [
+            '/^sepia(-(0))?$/',
+        ],
+        'backdrop-filter' => [
+            '/^backdrop-filter$/',
+            '/^backdrop-filter-none$/',
+        ],
+        'backdrop-brightness' => [
+            '/^backdrop-brightness-[^\\s]+$/',
+        ],
+        'backdrop-contrast' => [
+            '/^backdrop-contrast-[^\\s]+$/',
+        ],
+        'backdrop-grayscale' => [
+            '/^backdrop-grayscale(-(0))?$/',
+        ],
+        'backdrop-hue-rotate' => [
+            '/^backdrop-hue-rotate-[^\\s]+$/',
+        ],
+        'backdrop-invert' => [
+            '/^backdrop-invert(-(0))?$/',
+        ],
+        'backdrop-saturate' => [
+            '/^backdrop-saturate-[^\\s]+$/',
+        ],
+        'backdrop-sepia' => [
+            '/^backdrop-sepia(-(0))?$/',
+        ],
+
+        // Tables
+        'border-collapse' => [
+            '/^border-(collapse|separate)$/',
+        ],
+        'border-spacing' => [
+            '/^border-spacing-[^\\s]+$/',
+        ],
+        'border-spacing-x' => [
+            '/^border-spacing-x-[^\\s]+$/',
+        ],
+        'border-spacing-y' => [
+            '/^border-spacing-y-[^\\s]+$/',
+        ],
+        'table-layout' => [
+            '/^table-(auto|fixed)$/',
+        ],
+        'caption-side' => [
+            '/^caption-(top|bottom)$/',
         ],
 
         // -----------------
@@ -429,8 +709,27 @@ final class TailwindMerge
         'skew' => [
             '/^skew-[xy]-[^:]+$/',
         ],
+        'transform-style' => [
+            '/^transform-(flat|3d)$/',
+        ],
+        'backface-visibility' => [
+            '/^backface-(visible|hidden)$/',
+        ],
+        'perspective' => [
+            '/^perspective-[^:]+$/',
+        ],
+        'perspective-origin' => [
+            '/^perspective-origin-[^:]+$/',
+        ],
         'transition-property' => [
             '/^transition(-(none|all|colors|opacity|shadow|transform))?$/',
+            '/^transition-\[[^\]]+\]$/',
+            '/^transition-\([^)]+\)$/',
+        ],
+        'transition-behavior' => [
+            '/^transition-behavior-(normal|allow-discrete)$/',
+            '/^transition-behavior-\[[^\]]+\]$/',
+            '/^transition-behavior-\([^)]+\)$/',
         ],
         'transition-duration' => [
             '/^duration-\d+$/',
@@ -461,6 +760,111 @@ final class TailwindMerge
         'user-select' => [
             '/^select-(none|text|all|auto)$/',
         ],
+        'accent-color' => [
+            '/^accent-(auto|black|white|transparent|current)(?:\/(\d+|\[[^\]]+\]))?$/',
+            '/^accent-[a-z0-9-]+-(50|[1-9]00|950)(?:\/(\d+|\[[^\]]+\]))?$/',
+            '/^accent-\[[^\]]+\]$/',
+            '/^accent-\([^)]+\)$/',
+        ],
+        'appearance' => [
+            '/^appearance-(none|auto)$/',
+        ],
+        'caret-color' => [
+            '/^caret-(black|white|transparent|current)(?:\/(\d+|\[[^\]]+\]))?$/',
+            '/^caret-[a-z0-9-]+-(50|[1-9]00|950)(?:\/(\d+|\[[^\]]+\]))?$/',
+            '/^caret-\[[^\]]+\]$/',
+            '/^caret-\([^)]+\)$/',
+        ],
+        'color-scheme' => [
+            '/^color-scheme-[A-Za-z0-9_-]+$/',
+        ],
+        'field-sizing' => [
+            '/^field-sizing-(content|revert)$/',
+        ],
+        'resize' => [
+            '/^resize(-(none|x|y))?$/',
+        ],
+        'scroll-behavior' => [
+            '/^scroll-(auto|smooth)$/',
+        ],
+        'scroll-margin' => [
+            '/^scroll-m-[^:]+$/',
+        ],
+        'scroll-margin-x' => [
+            '/^scroll-mx-[^:]+$/',
+        ],
+        'scroll-margin-y' => [
+            '/^scroll-my-[^:]+$/',
+        ],
+        'scroll-margin-t' => [
+            '/^scroll-mt-[^:]+$/',
+        ],
+        'scroll-margin-r' => [
+            '/^scroll-mr-[^:]+$/',
+        ],
+        'scroll-margin-b' => [
+            '/^scroll-mb-[^:]+$/',
+        ],
+        'scroll-margin-l' => [
+            '/^scroll-ml-[^:]+$/',
+        ],
+        'scroll-padding' => [
+            '/^scroll-p-[^:]+$/',
+        ],
+        'scroll-padding-x' => [
+            '/^scroll-px-[^:]+$/',
+        ],
+        'scroll-padding-y' => [
+            '/^scroll-py-[^:]+$/',
+        ],
+        'scroll-padding-t' => [
+            '/^scroll-pt-[^:]+$/',
+        ],
+        'scroll-padding-r' => [
+            '/^scroll-pr-[^:]+$/',
+        ],
+        'scroll-padding-b' => [
+            '/^scroll-pb-[^:]+$/',
+        ],
+        'scroll-padding-l' => [
+            '/^scroll-pl-[^:]+$/',
+        ],
+        'scroll-snap-type' => [
+            '/^snap-(none|x|y|both|mandatory|proximity)$/',
+        ],
+        'scroll-snap-align' => [
+            '/^snap-(start|end|center|align-none)$/',
+        ],
+        'scroll-snap-stop' => [
+            '/^snap-(normal|always)$/',
+        ],
+        'touch-action' => [
+            '/^touch-(auto|none|pan-x|pan-y|pinch-zoom|manipulation)$/',
+        ],
+        'will-change' => [
+            '/^will-change-(auto|scroll|contents|transform)$/',
+            '/^will-change-\[[^\]]+\]$/',
+        ],
+        'fill' => [
+            '/^fill-(black|white|transparent|current)$/',
+            '/^fill-[a-z0-9-]+-(50|[1-9]00|950)(?:\/(\d+|\[[^\]]+\]))?$/',
+            '/^fill-\[[^\]]+\]$/',
+            '/^fill-\([^)]+\)$/',
+        ],
+        'stroke' => [
+            '/^stroke-(black|white|transparent|current)$/',
+            '/^stroke-[a-z0-9-]+-(50|[1-9]00|950)(?:\/(\d+|\[[^\]]+\]))?$/',
+            '/^stroke-\[[^\]]+\]$/',
+            '/^stroke-\([^)]+\)$/',
+        ],
+        'stroke-width' => [
+            '/^stroke-\d+$/',
+            '/^stroke-\[[^\]]+\]$/',
+            '/^stroke-\([^)]+\)$/',
+        ],
+        'forced-color-adjust' => [
+            '/^forced-color-adjust-(auto|none)$/',
+        ],
     ];
 
     /**
@@ -472,27 +876,47 @@ final class TailwindMerge
      */
     private array $conflictingGroups = [
         // margin shorthands
-        'margin-all' => ['margin-x', 'margin-y', 'margin-t', 'margin-r', 'margin-b', 'margin-l'],
-        'margin-x' => ['margin-all', 'margin-r', 'margin-l'],
+        'margin-all' => ['margin-x', 'margin-y', 'margin-t', 'margin-r', 'margin-b', 'margin-l', 'margin-inline-start', 'margin-inline-end'],
+        'margin-x' => ['margin-all', 'margin-r', 'margin-l', 'margin-inline-start', 'margin-inline-end'],
         'margin-y' => ['margin-all', 'margin-t', 'margin-b'],
         'margin-t' => ['margin-all', 'margin-y'],
-        'margin-r' => ['margin-all', 'margin-x'],
+        'margin-r' => ['margin-all', 'margin-x', 'margin-inline-end'],
         'margin-b' => ['margin-all', 'margin-y'],
-        'margin-l' => ['margin-all', 'margin-x'],
+        'margin-l' => ['margin-all', 'margin-x', 'margin-inline-start'],
+        'margin-inline-start' => ['margin-all', 'margin-x', 'margin-l'],
+        'margin-inline-end' => ['margin-all', 'margin-x', 'margin-r'],
 
         // padding shorthands
-        'padding-all' => ['padding-x', 'padding-y', 'padding-t', 'padding-r', 'padding-b', 'padding-l'],
-        'padding-x' => ['padding-all', 'padding-r', 'padding-l'],
+        'padding-all' => ['padding-x', 'padding-y', 'padding-t', 'padding-r', 'padding-b', 'padding-l', 'padding-inline-start', 'padding-inline-end'],
+        'padding-x' => ['padding-all', 'padding-r', 'padding-l', 'padding-inline-start', 'padding-inline-end'],
         'padding-y' => ['padding-all', 'padding-t', 'padding-b'],
         'padding-t' => ['padding-all', 'padding-y'],
-        'padding-r' => ['padding-all', 'padding-x'],
+        'padding-r' => ['padding-all', 'padding-x', 'padding-inline-end'],
         'padding-b' => ['padding-all', 'padding-y'],
-        'padding-l' => ['padding-all', 'padding-x'],
+        'padding-l' => ['padding-all', 'padding-x', 'padding-inline-start'],
+        'padding-inline-start' => ['padding-all', 'padding-x', 'padding-l'],
+        'padding-inline-end' => ['padding-all', 'padding-x', 'padding-r'],
 
         // gap shorthands
         'gap' => ['gap-x', 'gap-y'],
         'gap-x' => ['gap'],
         'gap-y' => ['gap'],
+
+        // scroll padding/margin shorthands
+        'scroll-margin' => ['scroll-margin-x', 'scroll-margin-y', 'scroll-margin-t', 'scroll-margin-r', 'scroll-margin-b', 'scroll-margin-l'],
+        'scroll-margin-x' => ['scroll-margin', 'scroll-margin-r', 'scroll-margin-l'],
+        'scroll-margin-y' => ['scroll-margin', 'scroll-margin-t', 'scroll-margin-b'],
+        'scroll-margin-t' => ['scroll-margin', 'scroll-margin-y'],
+        'scroll-margin-r' => ['scroll-margin', 'scroll-margin-x'],
+        'scroll-margin-b' => ['scroll-margin', 'scroll-margin-y'],
+        'scroll-margin-l' => ['scroll-margin', 'scroll-margin-x'],
+        'scroll-padding' => ['scroll-padding-x', 'scroll-padding-y', 'scroll-padding-t', 'scroll-padding-r', 'scroll-padding-b', 'scroll-padding-l'],
+        'scroll-padding-x' => ['scroll-padding', 'scroll-padding-r', 'scroll-padding-l'],
+        'scroll-padding-y' => ['scroll-padding', 'scroll-padding-t', 'scroll-padding-b'],
+        'scroll-padding-t' => ['scroll-padding', 'scroll-padding-y'],
+        'scroll-padding-r' => ['scroll-padding', 'scroll-padding-x'],
+        'scroll-padding-b' => ['scroll-padding', 'scroll-padding-y'],
+        'scroll-padding-l' => ['scroll-padding', 'scroll-padding-x'],
     ];
 
     /**
