@@ -1,3 +1,5 @@
 .env
 .env.example
 composer.lock
+vendor
+public/storage

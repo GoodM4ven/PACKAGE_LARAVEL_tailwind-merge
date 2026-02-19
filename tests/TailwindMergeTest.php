@@ -27,6 +27,22 @@ dataset('merge_examples', [
         ['m-4 mt-8'],
         'mt-8',
     ],
+    'inset keeps orthogonal bottom and inset-x' => [
+        ['bottom-7 inset-x-0'],
+        'bottom-7 inset-x-0',
+    ],
+    'inset keeps orthogonal inset-x and bottom' => [
+        ['inset-x-0 bottom-7'],
+        'inset-x-0 bottom-7',
+    ],
+    'inset shorthand overrides earlier side' => [
+        ['top-2 inset-y-4'],
+        'inset-y-4',
+    ],
+    'inset side after shorthand remains' => [
+        ['inset-y-4 top-2'],
+        'inset-y-4 top-2',
+    ],
     'gap shorthands' => [
         ['gap-2 gap-x-4 gap-y-8'],
         'gap-x-4 gap-y-8',

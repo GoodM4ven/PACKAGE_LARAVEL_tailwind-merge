@@ -392,9 +392,32 @@ final class TailwindMerge
         'max-height' => [
             '/^max-h-.+$/',
         ],
-        'inset' => [
-            '/^(inset|top|right|bottom|left|start|end)(-[^:]+)?$/',
-            '/^inset-[xy]-[^:]+$/',
+        'inset-all' => [
+            '/^inset(?:-(?!x-|y-)[^:]+)?$/',
+        ],
+        'inset-x' => [
+            '/^inset-x-[^:]+$/',
+        ],
+        'inset-y' => [
+            '/^inset-y-[^:]+$/',
+        ],
+        'top' => [
+            '/^top(?:-[^:]+)?$/',
+        ],
+        'right' => [
+            '/^right(?:-[^:]+)?$/',
+        ],
+        'bottom' => [
+            '/^bottom(?:-[^:]+)?$/',
+        ],
+        'left' => [
+            '/^left(?:-[^:]+)?$/',
+        ],
+        'start' => [
+            '/^start(?:-[^:]+)?$/',
+        ],
+        'end' => [
+            '/^end(?:-[^:]+)?$/',
         ],
 
         'size' => [
@@ -896,6 +919,11 @@ final class TailwindMerge
         'padding-l' => ['padding-all', 'padding-x', 'padding-inline-start'],
         'padding-inline-start' => ['padding-all', 'padding-x', 'padding-l'],
         'padding-inline-end' => ['padding-all', 'padding-x', 'padding-r'],
+
+        // inset shorthands
+        'inset-all' => ['inset-x', 'inset-y', 'top', 'right', 'bottom', 'left', 'start', 'end'],
+        'inset-x' => ['left', 'right', 'start', 'end'],
+        'inset-y' => ['top', 'bottom'],
 
         // gap shorthands
         'gap' => ['gap-x', 'gap-y'],
